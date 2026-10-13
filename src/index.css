@@ -110,24 +110,6 @@ ul {
   gap: 6px;
 }
 
-.logo-box {
-  display: inline-block;
-  width: 1.9em;
-  height: 0.62em;
-  border: 3px solid var(--accent);
-  border-left-color: var(--fg);
-}
-
-.logo-box-lg {
-  width: 3.4em;
-  height: 0.9em;
-}
-
-.logo-slash {
-  color: var(--muted);
-  font-weight: 400;
-}
-
 /* Section headings */
 
 .section-heading {
@@ -185,7 +167,7 @@ ul {
 
 .card {
   position: relative;
-  flex: 0 0 clamp(260px, 24vw, 360px);
+  flex: 0 0 clamp(220px, 19vw, 290px);
   aspect-ratio: 3 / 5;
   overflow: hidden;
   padding: 0;
@@ -249,13 +231,18 @@ ul {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0) 45%);
 }
 
+/* screenshots are mostly white, so they need a heavier shade behind the title */
+.card-image + .card-shade {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0) 55%);
+}
+
 .card-text {
   position: absolute;
   inset: 0 0 auto 0;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  padding: 28px 26px;
+  padding: 22px 20px;
 }
 
 .card-category {
@@ -266,7 +253,7 @@ ul {
 }
 
 .card-title {
-  font-size: clamp(1.5rem, 2vw, 1.85rem);
+  font-size: clamp(1.3rem, 1.7vw, 1.55rem);
   font-weight: 600;
   line-height: 1.2;
 }
@@ -593,7 +580,7 @@ a.cta:hover {
   }
 
   .card {
-    flex-basis: 78vw;
+    flex-basis: 64vw;
   }
 
   .detail-inner {

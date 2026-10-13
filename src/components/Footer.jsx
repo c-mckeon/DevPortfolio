@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer id="contact" className="footer">
       <div className="footer-logo">
-        <Logo withMark />
+        <Logo />
       </div>
       <div className="footer-row">
         <div>

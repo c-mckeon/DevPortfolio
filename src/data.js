@@ -1,5 +1,10 @@
 // Everything on the page is driven from this file — edit here, not in the components.
 
+import workoutTrackerImage from './assets/projects/workout-tracker.png'
+import piDashboardImage from './assets/projects/pi-dashboard.png'
+import tuneTrackerImage from './assets/projects/tune-tracker.png'
+import agentDashboardImage from './assets/projects/agent-dashboard.png'
+
 export const site = {
   firstName: 'Conor',
   lastName: 'McKeon',
@@ -31,7 +36,7 @@ export const site = {
   ],
 }
 
-// `image` is optional: drop a file in public/projects/ and set image: '/projects/my-shot.jpg'.
+// `image` is optional: drop a file in src/assets/projects/, import it above and set image: myImport.
 // Without one, the card falls back to the `art` pattern (grid | rings | lines | blocks | dots).
 // `demo` is the URL behind the "Let's see it in action" button; leave it empty and the button is disabled.
 // `comingSoon: true` marks a project that isn't built yet.
@@ -48,6 +53,7 @@ export const projects = [
     ],
     stack: ['JavaScript', 'Firebase Realtime Database'],
     demo: '',
+    image: workoutTrackerImage,
     art: 'grid',
   },
   {
@@ -60,6 +66,7 @@ export const projects = [
     ],
     stack: ['React', 'FastAPI', 'Python', 'Raspberry Pi', 'Cloudflare Tunnels', 'Tailscale'],
     demo: '',
+    image: piDashboardImage,
     art: 'rings',
   },
   {
@@ -72,6 +79,7 @@ export const projects = [
     ],
     stack: ['React', 'YouTube embeds', 'SQLite'],
     demo: '',
+    image: tuneTrackerImage,
     art: 'lines',
   },
   {
@@ -85,6 +93,7 @@ export const projects = [
     stack: ['React', 'TypeScript', 'Claude API'],
     demo: '',
     comingSoon: true,
+    image: agentDashboardImage,
     art: 'blocks',
   },
 ]
