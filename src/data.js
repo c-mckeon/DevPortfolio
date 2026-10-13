@@ -31,8 +31,8 @@ export const site = {
   ],
   links: [
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/mckeon-conor' },
-    { label: 'Publication', href: 'https://doi.org/10.1038/s41594-023-01056-x' },
-    { label: 'Email', href: 'mailto:conor.mckeon4@gmail.com' },
+    // `copy` instead of `href` opens a small drawer with the value and a copy button
+    { label: 'Email', copy: 'conor.mckeon4@gmail.com' },
   ],
 }
 
@@ -52,7 +52,7 @@ export const projects = [
       'Data lives in Firebase Realtime Database. User accounts are in development now, ahead of a public release.',
     ],
     stack: ['JavaScript', 'Firebase Realtime Database'],
-    demo: '',
+    demo: 'https://c-mckeon.github.io/LeanLog/',
     image: workoutTrackerImage,
     art: 'grid',
   },
@@ -65,7 +65,7 @@ export const projects = [
       'A FastAPI backend handles requests, triggers Python scripts and passes the results of a locally running AI model back to the frontend. Cloudflare Tunnels and Tailscale make it reachable from anywhere.',
     ],
     stack: ['React', 'FastAPI', 'Python', 'Raspberry Pi', 'Cloudflare Tunnels', 'Tailscale'],
-    demo: '',
+    demo: 'https://pi.zen-dashboard.win/',
     image: piDashboardImage,
     art: 'rings',
   },
@@ -78,7 +78,7 @@ export const projects = [
       'Pick a tune, hit play, and play along — no more hunting for that one version of a reel.',
     ],
     stack: ['React', 'YouTube embeds', 'SQLite'],
-    demo: '',
+    demo: 'https://c-mckeon.github.io/TuneLibrary/',
     image: tuneTrackerImage,
     art: 'lines',
   },
@@ -91,7 +91,7 @@ export const projects = [
       'Not built yet — this is the next project on the bench.',
     ],
     stack: ['React', 'TypeScript', 'Claude API'],
-    demo: '',
+    demo: 'https://c-mckeon.github.io/AgentDash/',
     comingSoon: true,
     image: agentDashboardImage,
     art: 'blocks',

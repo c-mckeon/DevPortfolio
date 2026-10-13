@@ -69,29 +69,10 @@ function ProjectDetail({ project, open, onClose, panelRef }) {
 }
 
 export default function Projects() {
-  const scrollerRef = useRef(null)
   const panelRef = useRef(null)
-  const [canPrev, setCanPrev] = useState(false)
-  const [canNext, setCanNext] = useState(false)
   const [openIndex, setOpenIndex] = useState(null)
   // the last opened project stays rendered so the panel still has content while it animates shut
   const [shownIndex, setShownIndex] = useState(null)
-
-  useEffect(() => {
-    const el = scrollerRef.current
-    const update = () => {
-      setCanPrev(el.scrollLeft > 1)
-      setCanNext(el.scrollLeft + el.clientWidth < el.scrollWidth - 1)
-    }
-    update()
-    el.addEventListener('scroll', update, { passive: true })
-    const observer = new ResizeObserver(update)
-    observer.observe(el)
-    return () => {
-      el.removeEventListener('scroll', update)
-      observer.disconnect()
-    }
-  }, [])
 
   // once the panel has finished opening, bring it into view
   useEffect(() => {
@@ -111,13 +92,6 @@ export default function Projects() {
     }
   }
 
-  const scrollByCard = (direction) => {
-    const el = scrollerRef.current
-    const card = el.querySelector('.card')
-    const gap = parseFloat(getComputedStyle(card.parentElement).columnGap) || 0
-    el.scrollBy({ left: direction * (card.offsetWidth + gap), behavior: 'smooth' })
-  }
-
   return (
     <section id="projects" className="projects">
       <div className="section-heading">
@@ -125,7 +99,7 @@ export default function Projects() {
         <p className="eyebrow">Explore my work</p>
       </div>
 
-      <div className="carousel" ref={scrollerRef}>
+      <div className="carousel">
         <div className="carousel-track">
           {projects.map((project, index) => (
             <ProjectCard
@@ -136,15 +110,6 @@ export default function Projects() {
             />
           ))}
         </div>
-      </div>
-
-      <div className="carousel-controls">
-        <button type="button" onClick={() => scrollByCard(-1)} disabled={!canPrev} aria-label="Previous projects">
-          ←
-        </button>
-        <button type="button" onClick={() => scrollByCard(1)} disabled={!canNext} aria-label="Next projects">
-          →
-        </button>
       </div>
 
       <ProjectDetail

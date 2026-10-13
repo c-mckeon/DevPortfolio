@@ -301,37 +301,6 @@ ul {
   background-size: 28px 28px;
 }
 
-.carousel-controls {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  padding: 0 var(--gutter);
-}
-
-.carousel-controls button {
-  width: 48px;
-  height: 48px;
-  border: 0;
-  border-radius: 50%;
-  background: #ffffff;
-  color: #333333;
-  font-size: 1.3rem;
-  line-height: 1;
-  cursor: pointer;
-  transition: background 0.15s, color 0.15s;
-}
-
-.carousel-controls button:hover:not(:disabled) {
-  background: var(--accent);
-  color: #ffffff;
-}
-
-.carousel-controls button:disabled {
-  background: #9a9a9a;
-  color: #555555;
-  cursor: default;
-}
-
 /* Project detail panel — animates open by transitioning the grid row from 0fr to 1fr */
 
 .detail {
@@ -545,21 +514,99 @@ a.cta:hover {
   gap: 8px;
 }
 
-.footer-links a {
+.footer-links li {
+  position: relative;
+}
+
+.footer-link {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 18px;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
   transition: color 0.15s;
 }
 
-.footer-links a:hover {
+.footer-link:hover {
   color: var(--accent);
 }
 
-.arrow {
+/* a plus drawn from two bars: reads as "open" for links, and turns to a cross while the drawer is out */
+.link-mark {
+  position: relative;
+  flex: none;
+  width: 12px;
+  height: 12px;
   color: var(--accent);
-  font-weight: 700;
+  transition: transform 0.2s;
+}
+
+.link-mark::before,
+.link-mark::after {
+  content: '';
+  position: absolute;
+  inset: 5px 0;
+  background: currentColor;
+}
+
+.link-mark::after {
+  transform: rotate(90deg);
+}
+
+.link-mark.is-open {
+  transform: rotate(45deg);
+}
+
+/* Copy drawer — slides out to the left of its link */
+
+.drawer {
+  position: absolute;
+  top: 50%;
+  right: calc(100% + 14px);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 6px 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--bg);
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(10px, -50%);
+  transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+}
+
+.drawer.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0, -50%);
+}
+
+.drawer-copy {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--fg);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.drawer-copy:hover {
+  background: var(--accent);
 }
 
 @media (max-width: 640px) {
@@ -598,6 +645,13 @@ a.cta:hover {
   .footer-row {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  /* the links sit at the left edge here, so the drawer opens to the right instead */
+  .drawer {
+    right: auto;
+    left: calc(100% + 14px);
+    transform: translate(-10px, -50%);
   }
 }
 
