@@ -34,11 +34,12 @@ function ProjectDetail({ project, open, onClose, panelRef }) {
 
             <div className="detail-main">
               <p className="eyebrow">{project.category}</p>
-              <h2>
-                {project.title}
-                {project.comingSoon && <span className="badge">In development</span>}
-              </h2>
-              <p className="detail-summary">{project.summary}</p>
+              <h2>{project.title}</h2>
+              {project.comingSoon && (
+                <p className="detail-summary">
+                  <span className="badge">In development</span>
+                </p>
+              )}
               {project.description.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}

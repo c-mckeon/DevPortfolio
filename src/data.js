@@ -40,39 +40,36 @@ export const site = {
 // Without one, the card falls back to the `art` pattern (grid | rings | lines | blocks | dots).
 // `demo` is the URL behind the "Let's see it in action" button; leave it empty and the button is disabled.
 // `comingSoon: true` marks a project that isn't built yet.
-// NOTE: the first two projects follow the CV. The `stack` for Tune Tracker and AI Control Dashboard
+// NOTE: the first two projects follow the CV. The `stack` for Setlist and AI Agent Testbed
 // is still a guess — replace with what you actually used.
 export const projects = [
   {
-    category: 'Fitness',
-    title: 'Setwise',
-    summary: 'Workout tracker',
+    category: 'Fitness Tracker',
+    title: 'LeanLog',
     description: [
-      'A workout tracker for recording training data and visualising progress. I built it for myself and have trained with it for over two years, so every rough edge has been found the hard way.',
-      'Data lives in Firebase Realtime Database. User accounts are in development now, ahead of a public release.',
+      'A minimal and customizable workout tracker for recording training data and visualising progress. I built it for myself and have trained with it for over two years, so every rough edge has been found the hard way.',
+      'User workout and settings data lives in Firebase Realtime Database. Authorization is handled by Cognito. Updates to the Production build are handled by GitHub workflows, which build the Frontend in a public GitHub repository, and the Backend is Dockerized and served on Azure.',
     ],
-    stack: ['JavaScript', 'Firebase Realtime Database'],
+    stack: ['JavaScript', 'Firebase Realtime Database', 'AWS Cognito', 'Docker', 'Azure', 'GitHub Actions'],
     demo: 'https://c-mckeon.github.io/LeanLog/',
     image: workoutTrackerImage,
     art: 'grid',
   },
   {
     category: 'Self-Hosting',
-    title: 'Pi Home Dashboard',
-    summary: 'Self-hosted home monitoring dashboard',
+    title: 'Smart Home Dashboard',
     description: [
       'A self-hosted React dashboard for monitoring environmental data around my home, running on my own hardware rather than someone else’s cloud.',
       'A FastAPI backend handles requests, triggers Python scripts and passes the results of a locally running AI model back to the frontend. Cloudflare Tunnels and Tailscale make it reachable from anywhere.',
     ],
-    stack: ['React', 'FastAPI', 'Python', 'Raspberry Pi', 'Cloudflare Tunnels', 'Tailscale'],
+    stack: ['Raspberry Pi', 'Linux', 'FastAPI', 'Python', 'Cloudflare Tunnels', 'Tailscale', 'React'],
     demo: 'https://pi.zen-dashboard.win/',
     image: piDashboardImage,
     art: 'rings',
   },
   {
-    category: 'Irish Music',
-    title: 'Tune Tracker',
-    summary: 'Tunes I am playing and learning',
+    category: 'Music Practice Platform',
+    title: 'Setlist',
     description: [
       'A site for keeping track of the Irish tunes I am playing or learning: the name of each tune alongside a YouTube recording of it.',
       'Pick a tune, hit play, and play along — no more hunting for that one version of a reel.',
@@ -83,9 +80,8 @@ export const projects = [
     art: 'lines',
   },
   {
-    category: 'Artificial Intelligence',
-    title: 'AI Control Dashboard',
-    summary: 'One place to run and watch AI agents',
+    category: 'Cloud Sandbox Model Monitor',
+    title: 'AI Agent Testbed',
     description: [
       'A control dashboard for AI tools: one place to start tasks, watch what is running, and review what came back.',
       'Not built yet — this is the next project on the bench.',
