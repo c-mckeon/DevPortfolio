@@ -3,21 +3,24 @@ import { projects } from '../data.js'
 
 function ProjectCard({ project, selected, onSelect }) {
   return (
-    <button
-      type="button"
-      className={`card ${project.image ? '' : `art-${project.art}`} ${selected ? 'is-selected' : ''}`}
-      onClick={onSelect}
-      aria-expanded={selected}
-      aria-controls="project-detail"
-    >
-      {project.image && <img className="card-image" src={project.image} alt="" loading="lazy" />}
-      <span className="card-shade" aria-hidden="true" />
-      <span className="card-text">
-        <span className="card-category">{project.category}</span>
-        <span className="card-title">{project.title}</span>
-      </span>
-      <span className="card-hint" aria-hidden="true">{selected ? '−' : '+'}</span>
-    </button>
+    <div className={`card-slot ${selected ? 'is-selected' : ''}`}>
+      <button
+        type="button"
+        className={`card ${project.image ? '' : `art-${project.art}`} ${selected ? 'is-selected' : ''}`}
+        onClick={onSelect}
+        aria-expanded={selected}
+        aria-controls="project-detail"
+      >
+        {project.image && <img className="card-image" src={project.image} alt="" loading="lazy" />}
+        <span className="card-shade" aria-hidden="true" />
+        <span className="card-text">
+          <span className="card-category">{project.category}</span>
+          <span className="card-title">{project.title}</span>
+        </span>
+        <span className="card-hint" aria-hidden="true">{selected ? '−' : '+'}</span>
+      </button>
+      {project.comingSoon && <p className="card-banner">In development</p>}
+    </div>
   )
 }
 
@@ -54,11 +57,11 @@ function ProjectDetail({ project, open, onClose, panelRef }) {
               </ul>
               {project.demo ? (
                 <a className="cta" href={project.demo} target="_blank" rel="noreferrer">
-                  Let's see it in action <span aria-hidden="true">→</span>
+                  {project.cta ?? "Let's see it in action"} <span aria-hidden="true">→</span>
                 </a>
               ) : (
                 <button type="button" className="cta" disabled>
-                  {project.comingSoon ? 'Coming soon' : "Let's see it in action"}
+                  {project.comingSoon ? 'Coming soon' : (project.cta ?? "Let's see it in action")}
                 </button>
               )}
             </div>

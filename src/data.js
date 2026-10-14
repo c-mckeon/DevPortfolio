@@ -38,13 +38,27 @@ export const site = {
 
 // `image` is optional: drop a file in src/assets/projects/, import it above and set image: myImport.
 // Without one, the card falls back to the `art` pattern (grid | rings | lines | blocks | dots).
-// `demo` is the URL behind the "Let's see it in action" button; leave it empty and the button is disabled.
+// `demo` is the URL behind the action button; leave it empty and the button is disabled.
+// `cta` is that button's label (defaults to "Let's see it in action").
 // `comingSoon: true` marks a project that isn't built yet.
-// NOTE: the first two projects follow the CV. The `stack` for Setlist and AI Agent Testbed
+// NOTE: Home Dashboard and LeanLog follow the CV. The `stack` for Setlist and AI Agent Sandbox
 // is still a guess — replace with what you actually used.
 export const projects = [
   {
-    category: 'Fitness Tracker',
+    category: 'Self-Hosted Service Manager',
+    title: 'Home Dashboard',
+    description: [
+      'A self-hosted React dashboard for monitoring environmental data around my home, running on my own hardware rather than someone else’s cloud.',
+      'A FastAPI backend handles requests, triggers Python scripts and passes the results of a locally running AI model back to the frontend. Cloudflare Tunnels and Tailscale make it reachable from anywhere.',
+    ],
+    stack: ['Raspberry Pi', 'Linux', 'FastAPI', 'Python', 'Cloudflare Tunnels', 'Tailscale', 'React'],
+    demo: 'https://pi.zen-dashboard.win/',
+    cta: 'Let’s see what’s running',
+    image: piDashboardImage,
+    art: 'rings',
+  },
+  {
+    category: 'Fitness Tracker App',
     title: 'LeanLog',
     description: [
       'A minimal and customizable workout tracker for recording training data and visualising progress. I built it for myself and have trained with it for over two years, so every rough edge has been found the hard way.',
@@ -52,20 +66,9 @@ export const projects = [
     ],
     stack: ['JavaScript', 'Firebase Realtime Database', 'AWS Cognito', 'Docker', 'Azure', 'GitHub Actions'],
     demo: 'https://c-mckeon.github.io/LeanLog/',
+    cta: 'Let’s get to work',
     image: workoutTrackerImage,
     art: 'grid',
-  },
-  {
-    category: 'Self-Hosting',
-    title: 'Smart Home Dashboard',
-    description: [
-      'A self-hosted React dashboard for monitoring environmental data around my home, running on my own hardware rather than someone else’s cloud.',
-      'A FastAPI backend handles requests, triggers Python scripts and passes the results of a locally running AI model back to the frontend. Cloudflare Tunnels and Tailscale make it reachable from anywhere.',
-    ],
-    stack: ['Raspberry Pi', 'Linux', 'FastAPI', 'Python', 'Cloudflare Tunnels', 'Tailscale', 'React'],
-    demo: 'https://pi.zen-dashboard.win/',
-    image: piDashboardImage,
-    art: 'rings',
   },
   {
     category: 'Music Practice Platform',
@@ -76,18 +79,20 @@ export const projects = [
     ],
     stack: ['React', 'YouTube embeds', 'SQLite'],
     demo: 'https://c-mckeon.github.io/TuneLibrary/',
+    cta: 'Let’s hear it',
     image: tuneTrackerImage,
     art: 'lines',
   },
   {
-    category: 'Cloud Sandbox Model Monitor',
-    title: 'AI Agent Testbed',
+    category: 'Model Testing Environment',
+    title: 'AI Agent Sandbox',
     description: [
       'A control dashboard for AI tools: one place to start tasks, watch what is running, and review what came back.',
       'Not built yet — this is the next project on the bench.',
     ],
     stack: ['React', 'TypeScript', 'Claude API'],
     demo: 'https://c-mckeon.github.io/AgentDash/',
+    cta: 'Let’s see what they’re up to',
     comingSoon: true,
     image: agentDashboardImage,
     art: 'blocks',
