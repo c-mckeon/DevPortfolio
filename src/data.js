@@ -8,11 +8,11 @@ import agentDashboardImage from './assets/projects/agent-dashboard.png'
 export const site = {
   firstName: 'Conor',
   lastName: 'McKeon',
-  tagline: 'Scientist by training. Builder by habit.',
+  tagline: 'Curious about data and what it makes possible.',
   about: [
-    'I build things because I want to use them. Every project here started as a small itch in my own life: a workout I wanted to log properly, a tune I kept losing track of, a home I wanted to be able to check in on. None of them were built to be impressive. They were built to be used, and most of them still are, every day.',
-    'I like understanding things all the way down. That is why I host my own projects on a Raspberry Pi instead of handing them to someone else’s cloud, and why I would rather take a system apart than take its word for it. I came to code from science, and the instinct is the same: be curious, change one thing, see what happens.',
-    'I am Irish, I live in Berlin, and I have picked up French and some German along the way. Away from the screen I am usually in the gym or learning another tune. I think the things worth doing are the ones you get slowly better at, and that is most of what you will find here.',
+    'Hi I’m Conor, welcome to my site! I’m Irish, I studied in France and I now live in Berlin. I’m interested in technology, what we can learn from data, and what becomes possible as our understanding grows. That interest led me to science and programming, where I’ve found plenty of room for figuring things out, finding patterns and sharing what I’ve learned.',
+    'I like using data to make things visible, and I’m drawn to projects that make information useful. I built my training app because seeing progress changes how I train, and my music app because I wanted a better way to learn and organise tunes. Often, I’m looking for small ways technology can make something I already care about more engaging or effective.',
+    'I enjoy working through problems with other people and seeing how different ideas shape the project. I also love seeing what happens when the work is out in the world, the feedback it gets, the conversations it starts and the ideas that follow.',
   ],
   skills: [
     'JavaScript',
@@ -48,8 +48,8 @@ export const projects = [
     category: 'Self-Hosted Service Manager',
     title: 'Home Dashboard',
     description: [
-      'A self-hosted React dashboard for monitoring environmental data around my home, running on my own hardware rather than someone else’s cloud.',
-      'A FastAPI backend handles requests, triggers Python scripts and passes the results of a locally running AI model back to the frontend. Cloudflare Tunnels and Tailscale make it reachable from anywhere.',
+      'A self-hosted React dashboard for collecting and monitoring environmental data around my home. It gives me a live view of sensor readings and a way to track changes over time.',
+      'A FastAPI backend handles requests and runs the Python scripts that collect and process the data. The whole system runs at home, with Cloudflare Tunnels and Tailscale providing secure remote access.',
     ],
     stack: ['Raspberry Pi', 'Linux', 'FastAPI', 'Python', 'Cloudflare Tunnels', 'Tailscale', 'React'],
     demo: 'https://pi.zen-dashboard.win/',
@@ -61,8 +61,8 @@ export const projects = [
     category: 'Fitness Tracker App',
     title: 'LeanLog',
     description: [
-      'A minimal and customizable workout tracker for recording training data and visualising progress. I built it for myself and have trained with it for over two years, so every rough edge has been found the hard way.',
-      'User workout and settings data lives in Firebase Realtime Database. Authorization is handled by Cognito. Updates to the Production build are handled by GitHub workflows, which build the Frontend in a public GitHub repository, and the Backend is Dockerized and served on Azure.',
+      'A minimal, customisable workout tracker for recording training data and visualising progress. I built it for myself and have used it for every workout for over two years. I’ve since made it publicly available for others to use.',
+      'Workout and settings data are stored in Firebase Realtime Database, with authentication handled by Amazon Cognito. GitHub Actions builds and deploys the frontend from a public repository, while the backend is containerised with Docker and hosted on Azure.',
     ],
     stack: ['JavaScript', 'Firebase Realtime Database', 'AWS Cognito', 'Docker', 'Azure', 'GitHub Actions'],
     demo: 'https://c-mckeon.github.io/LeanLog/',
@@ -74,8 +74,8 @@ export const projects = [
     category: 'Music Practice Platform',
     title: 'Setlist',
     description: [
-      'A site for keeping track of the Irish tunes I am playing or learning: the name of each tune alongside a YouTube recording of it.',
-      'Pick a tune, hit play, and play along — no more hunting for that one version of a reel.',
+      'A play-along tool for learning and practising Irish music. I built it to catalogue the tunes I play and give me more control over how I practise them.',
+      'Each tune combines a YouTube recording with custom controls for speed, looping and timed autoplay, alongside chord diagrams and auto-scrolling lyrics or notes. Tunes can be arranged into sets and played in sequence, making it easy to practise individual tunes or play through a full set.',
     ],
     stack: ['React', 'YouTube embeds', 'SQLite'],
     demo: 'https://c-mckeon.github.io/TuneLibrary/',
@@ -87,8 +87,8 @@ export const projects = [
     category: 'Model Testing Environment',
     title: 'AI Agent Sandbox',
     description: [
-      'A control dashboard for AI tools: one place to start tasks, watch what is running, and review what came back.',
-      'Not built yet — this is the next project on the bench.',
+      'A testing environment for running and evaluating AI agents, with tools for launching tasks, following their progress, inspecting tool use and comparing results.',
+      'It’s an ambitious build, and my first at this level with a frontier coding agent. Careful planning, step-by-step explanations and diagrams keep the architecture clear while Claude Code handles increasingly complex parts of the implementation.',
     ],
     stack: ['React', 'TypeScript', 'Claude API'],
     demo: 'https://c-mckeon.github.io/AgentDash/',
