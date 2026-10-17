@@ -198,18 +198,34 @@ ul {
   aspect-ratio: 3 / 5;
   overflow: hidden;
   padding: 0;
-  border: 2px solid #000000;
+  border: 0;
   border-radius: 20px;
   background-color: #4a4a4a;
   color: inherit;
   font: inherit;
   text-align: left;
   cursor: pointer;
-  transition: box-shadow 0.25s ease;
+  /* its own GPU layer plus a clip-path keeps the rounded corners smooth while the card and image animate */
+  isolation: isolate;
+  clip-path: inset(0 round 20px);
+  transform: translateZ(0);
+  will-change: transform;
 }
 
-.card.is-selected {
-  box-shadow: 0 0 0 3px var(--accent);
+/* border drawn on top of the image so it hides the image's anti-aliased corners */
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 3px solid #1a1a1a;
+  border-radius: inherit;
+  pointer-events: none;
+  transition: border-color 0.25s ease, border-width 0.25s ease;
+}
+
+/* clip-path would cut off an outer ring, so the selected highlight is drawn by the border instead */
+.card.is-selected::after {
+  border: 4px solid var(--accent);
 }
 
 .card-hint {
@@ -233,12 +249,27 @@ ul {
   background: var(--accent);
 }
 
+/* the image sits 2px in from the edge, under the border, so its white edges never reach the card's outer pixel */
+.card-media {
+  position: absolute;
+  inset: 2px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #1a1a1a;
+}
+
+.card:has(.card-media) {
+  background-color: #1a1a1a;
+}
+
 .card-image {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  backface-visibility: hidden;
+  will-change: transform;
   transition: transform 0.5s ease;
 }
 
@@ -253,7 +284,7 @@ ul {
 }
 
 /* screenshots are mostly white, so they need a heavier shade behind the title */
-.card-image + .card-shade {
+.card-media + .card-shade {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0) 55%);
 }
 

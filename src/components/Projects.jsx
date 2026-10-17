@@ -11,7 +11,11 @@ function ProjectCard({ project, selected, onSelect }) {
         aria-expanded={selected}
         aria-controls="project-detail"
       >
-        {project.image && <img className="card-image" src={project.image} alt="" loading="lazy" />}
+        {project.image && (
+          <span className="card-media">
+            <img className="card-image" src={project.image} alt="" loading="lazy" />
+          </span>
+        )}
         <span className="card-shade" aria-hidden="true" />
         <span className="card-text">
           <span className="card-category">{project.category}</span>
