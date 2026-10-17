@@ -513,6 +513,11 @@ a.cta:hover {
   max-width: 68ch;
   margin: 40px auto 0;
   font-size: 1.15rem;
+  text-align: center;
+}
+
+.about-body .skills {
+  justify-content: center;
 }
 
 .skills {
