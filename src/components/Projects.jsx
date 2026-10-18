@@ -103,8 +103,7 @@ export default function Projects() {
   return (
     <section id="projects" className="projects">
       <div className="section-heading">
-        <h1>Featured Projects</h1>
-        <p className="eyebrow">Explore my work</p>
+        <h1 className="eyebrow">Featured Projects</h1>
       </div>
 
       <div className="carousel">

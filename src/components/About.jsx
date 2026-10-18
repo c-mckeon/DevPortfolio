@@ -4,8 +4,7 @@ export default function About() {
   return (
     <section id="about" className="about">
       <div className="section-heading">
-        <h2>About</h2>
-        <p className="eyebrow">A bit about me</p>
+        <h2 className="eyebrow">A bit about me</h2>
       </div>
       <div className="about-body">
         {site.about.map((paragraph) => (

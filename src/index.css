@@ -116,12 +116,17 @@ ul {
   text-align: center;
 }
 
-.section-heading h1,
-.section-heading h2 {
+.section-heading h1:not(.eyebrow),
+.section-heading h2:not(.eyebrow) {
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
   line-height: 1.1;
   text-transform: uppercase;
+}
+
+/* the small accent label is now the section's only heading, so it needs no gap above */
+.section-heading .eyebrow {
+  margin-top: 0;
 }
 
 .eyebrow {
@@ -516,6 +521,11 @@ a.cta:hover {
   text-align: center;
 }
 
+/* lets a \n in the about text start a new line */
+.about-body p {
+  white-space: pre-line;
+}
+
 .about-body .skills {
   justify-content: center;
 }
@@ -542,12 +552,6 @@ a.cta:hover {
 .footer {
   padding: 40px var(--gutter) 56px;
   border-top: 1px solid var(--line);
-}
-
-.footer-logo {
-  display: flex;
-  justify-content: center;
-  font-size: 1.15em;
 }
 
 .footer-row {

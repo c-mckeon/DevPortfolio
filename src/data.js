@@ -10,7 +10,7 @@ export const site = {
   lastName: 'McKeon',
   tagline: 'Curious about data and what it makes possible.',
   about: [
-    'Hi, I’m Conor. Welcome to my site! I’m Irish, I’ve studied in Galway and Montpellier, and I now live in Berlin.',
+    'Hi, I’m Conor. Welcome to my site!\nI’m Irish, I’ve studied in Galway and Montpellier, and I now live in Berlin.',
     'I’m interested in technology, what we can learn from data, and what becomes possible as our understanding grows. That interest led me to science and programming, where I’ve found plenty of room for figuring things out, finding patterns and sharing what I’ve learned.',
     'I like using data to make things visible, and I’m drawn to projects that make information useful. I built my training app because seeing progress changes how I train, and my music app because I wanted a better way to learn and organise tunes. Often, I’m looking for small ways technology can make something I already care about more engaging or effective.',
     'I enjoy working through problems with other people and seeing how different ideas shape the project. I also love seeing what happens when the work is out in the world, the feedback it gets, the conversations it starts and the ideas that follow.',

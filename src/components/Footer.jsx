@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import Logo from './Logo.jsx'
 import { site } from '../data.js'
 
 function CopyIcon() {
@@ -57,9 +56,6 @@ function CopyLink({ label, value }) {
 export default function Footer() {
   return (
     <footer id="contact" className="footer">
-      <div className="footer-logo">
-        <Logo />
-      </div>
       <div className="footer-row">
         <div>
           <p className="footer-name">
